@@ -42,3 +42,18 @@ class NotionExport:
             for file in self.files()
             if Path(file).suffix.lower() != ".md"
         ]
+
+
+    def read(self, file_path: str) -> str:
+        """Read a text file from the Notion export."""
+        file_path = str(file_path).replace("\\", "/")
+
+        with ZipFile(self.zip_path, "r") as archive:
+            try:
+                content = archive.read(file_path)
+            except KeyError:
+                raise FileNotFoundError(
+                    f"File not found in export: {file_path}"
+                )
+
+        return content.decode("utf-8")
