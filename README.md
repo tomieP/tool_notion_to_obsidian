@@ -63,6 +63,7 @@ notion-to-obsidian/
 │       ├── __init__.py
 │       ├── cli.py
 │       ├── parser/
+│       ├── index/
 │       ├── converter/
 │       ├── resolver/
 │       ├── validator/
