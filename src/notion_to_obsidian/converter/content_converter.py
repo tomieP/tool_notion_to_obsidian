@@ -1,13 +1,21 @@
 import re
 
+from .table_converter import TableConverter
+
 
 class ContentConverter:
     """Convert Notion-exported Markdown into clean Markdown."""
+
+    def __init__(self) -> None:
+        self.table_converter = TableConverter()
 
     def convert(self, content: str) -> str:
         """Convert raw Notion Markdown into clean Markdown."""
         content = self._normalize_line_endings(content)
         content = self._normalize_trailing_whitespace(content)
+
+        content = self.table_converter.convert(content)
+
         content = self._remove_redundant_blank_lines(content)
         content = self._remove_trailing_blank_lines(content)
 
