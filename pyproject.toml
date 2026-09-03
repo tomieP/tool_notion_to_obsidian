@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "notion-to-obsidian"
+version = "0.1.0"
+description = "Convert a Notion export ZIP into an Obsidian vault."
+requires-python = ">=3.13"
+
+[project.scripts]
+notion-to-obsidian = "notion_to_obsidian.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

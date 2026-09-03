@@ -1,7 +1,7 @@
 import re
 from urllib.parse import unquote
 
-from src.notion_to_obsidian.index.page_index import PageIndex
+from ..index.page_index import PageIndex
 
 
 NOTION_PAGE_ID_PATTERN = re.compile(
